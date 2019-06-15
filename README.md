@@ -77,7 +77,7 @@ You may compile MPI codes like this:
     mpiicc mpi_code.c           ### C compilation
     mpiifort mpi_code.f         ### Fortran compilation
     
-The compilation of MPI codes should be done interactively, but the execution should be done using a batch script. Please use the following template to run your MPI tasks:
+The compilation of MPI codes should be done interactively, but the execution should be done using a batch script. Please use the following template to run your MPI tasks (remember to change the reservation name):
 
     #!/bin/bash
     #SBATCH -N 1 
@@ -86,4 +86,18 @@ The compilation of MPI codes should be done interactively, but the execution sho
     #SBATCH --reservation=ptc_course_X
     srun -n 16 ./mpi_compiled_code
 
-For further information on SBATCH parameters, you may check the [Cartesius user info page](https://userinfo.surfsara.nl/systems/cartesius/usage/batch-usage).
+Modify this template conveniently and save it in a file in your home directory of Cartesius (e.g. script.sh)
+
+In order to run your code, you should submit your script in the terminal like this:
+
+    sbatch script.sh
+    
+Use this command to check that your job is running:
+
+    squeue –u $(whoami)
+   
+After executing squeue you will see the JobID of the script ("NNNNNNN"), and if you do:
+
+    ls slurm*
+
+you may also see a new file called "slurm-NNNNNNN.out". This file contains the output of your code, so that you can check if the execution was successful.
