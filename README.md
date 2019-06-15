@@ -1,6 +1,6 @@
 # PRACE course: Parallel Programming with MPI and OpenMP (3 days)
 
-In this course we will be using the [Cartesius supercomputer](https://userinfo.surfsara.nl/systems/cartesius) hosted at SURFsara. You will need to connect to them through the ssh protocol (natively installed on Linux and Mac).
+In this course we will be using the [Cartesius supercomputer](https://userinfo.surfsara.nl/systems/cartesius) hosted at SURFsara. You will need to connect to it through the ssh protocol (natively installed on Linux and Mac).
 
 For Windows users, we recommend to connect via ssh using [MobaXterm](https://mobaxterm.mobatek.net/) or, on Windows 10, using the [native bash environment](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide)
 
