@@ -77,14 +77,7 @@ You may compile MPI codes like this:
     mpiicc mpi_code.c           ### C compilation
     mpiifort mpi_code.f         ### Fortran compilation
     
-The compilation of MPI codes should be done interactively, but the execution should be done using a batch script. Please use the following template to run your MPI tasks (remember to change the reservation name):
-
-    #!/bin/bash
-    #SBATCH -N 1 
-    #SBATCH -n 16
-    #SBATCH -t 00:05:00
-    #SBATCH --reservation=ptc_course_X
-    srun -n 16 ./mpi_compiled_code
+The compilation of MPI codes should be done interactively, but the execution should be done using a batch script. Please use the script template mpi_script_template.sh in the directory MPI of this repository in order to run your MPI tasks (remember to change the reservation name):
 
 Modify this template conveniently and save it in a file in your home directory of Cartesius (e.g. script.sh)
 
