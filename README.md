@@ -1,4 +1,4 @@
-# Parallel Programming with MPI and OpenMP
+# PRACE course: Parallel Programming with MPI and OpenMP (3 days)
 
 In this course we will be using the [Cartesius supercomputer](https://userinfo.surfsara.nl/systems/cartesius) hosted at SURFsara. You will need to connect to them through the ssh protocol (natively installed on Linux and Mac).
 
