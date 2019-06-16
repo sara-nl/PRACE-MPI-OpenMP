@@ -42,7 +42,14 @@ You may compile OpenMP codes like this:
     gcc -fopenmp openmp_code.c          ### C compilation
     gfortran -fopenmp openmp_code.f     ### Fortran compilation
 
-As a result of the use of a reservation, all OpenMP codes may be executed interactively in the terminal where the interactive session is opened.
+As a result of the use of a reservation, all OpenMP codes may be executed interactively in the terminal where the interactive session is opened. The execution can be done directly as follows (e.g. if the executable is called "a.out"):
+
+    ./a.out
+    
+If you wish to indicate the number of threads for the execution using the environment variable OMP_NUM_THREADS, you may run the tests including this variable before the executable.
+
+    OMP_NUM_THREADS=4 ./a.out
+
 
 ## OpenMP special hands-on with Parallelware Trainer
 
@@ -74,10 +81,17 @@ For the use of MPI, please load the following Intel module:
     
 You may compile MPI codes like this:
 
-    mpiicc mpi_code.c           ### C compilation
-    mpiifort mpi_code.f         ### Fortran compilation
+    mpicc mpi_code.c        ### C compilation
+    mpif90 mpi_code.f       ### Fortran compilation
     
-The compilation of MPI codes should be done interactively, but the execution should be done using a batch script. Please use the script template mpi_script_template.sh in the directory MPI of this repository in order to run your MPI tasks (remember to change the reservation name):
+As a result of the use of a reservation, all MPI codes may be executed interactively on a single node in the terminal where the interactive session is opened. The correct way to execute MPI codes is as follows (e.g. for the use of 4 processes using an executable with name "a.out").
+
+    srun -n 4 ./a.out
+
+
+## Multinode MPI tests
+
+The execution of multinode tests with MPI should be done using a batch script. Please use the script template mpi_script_template.sh in the directory MPI of this repository in order to run your MPI tasks (remember to change the reservation name):
 
 Modify this template conveniently and save it in a file in your home directory of Cartesius (e.g. script.sh)
 
