@@ -75,8 +75,9 @@ If you wish to run the codes, please use the interactive session outside the gra
 
 ## MPI hands-on exercises
 
-For the use of MPI, please load the following Intel module:
+For the use of MPI, please purge the default environment and load the Intel compiler module as follows:
 
+    module purge
     module load mpi/impi
     
 You may compile MPI codes like this:
