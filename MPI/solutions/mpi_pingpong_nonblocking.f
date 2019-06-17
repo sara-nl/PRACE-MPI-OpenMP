@@ -1,5 +1,7 @@
       program pingpong
 
+c       IMPORTANT NOTE: the optimal module would be mpi_f08
+c        use mpi_f08
         use mpi
         implicit none
 
@@ -8,6 +10,8 @@
         integer :: i, j, niter = 1000
         integer :: status(MPI_STATUS_SIZE), request
         character(5) :: string
+c       IMPORTANT NOTE: the send buffers should be asynchronous
+c        character, asynchronous :: ping(5), pong(5)
         character :: ping(5), pong(5)
         character :: pingReceive(5), pongReceive(5)
 
@@ -31,6 +35,9 @@ c         Work for process with rank 0
             call MPI_RECV(pongReceive, 5, MPI_CHARACTER, 1, 23,
      &                    MPI_COMM_WORLD, status, ierr)
             call MPI_WAIT(request, status, ierr)
+c           IMPORTANT NOTE: buffer protection should be enabled!
+c            if (.not. MPI_ASYNC_PROTECTS_NONBLOCKING)
+c     &        call MPI_F_SYNC_REG(ping)
 c         Work for process with rank 1
           else if (myRank == 1) then
             string = "pong"
@@ -42,6 +49,9 @@ c         Work for process with rank 1
             call MPI_RECV(pingReceive, 5, MPI_CHARACTER, 0, 17, 
      &                    MPI_COMM_WORLD, status, ierr)
             call MPI_WAIT(request, status, ierr)
+c           IMPORTANT NOTE: buffer protection should be enabled!
+c            if (.not. MPI_ASYNC_PROTECTS_NONBLOCKING)
+c     &        call MPI_F_SYNC_REG(pong)
           endif
         enddo
 
