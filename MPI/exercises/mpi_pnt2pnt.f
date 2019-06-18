@@ -3,7 +3,7 @@
         use mpi
         implicit none
 
-        integer :: ierr, myRank, status
+        integer :: ierr, myRank, status(MPI_STATUS_SIZE)
         integer :: val_send, val_recv
 
         call MPI_INIT(ierr)
